@@ -19,6 +19,13 @@ header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    height: 50px;
 }
 
 nav a {
@@ -29,4 +36,77 @@ nav a {
 
 main {
     padding: 2rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.places-list, .reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.place-card, .review-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+}
+
+.place-card .place-image, .review-card .review-image {
+    border-radius: 10px;
+    width: 200px;
+}
+
+.place-details {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.place-image-large {
+    border-radius: 10px;
+    width: 50%;
+}
+
+.place-info {
+    width: 50%;
+}
+
+.add-review {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-review label {
+    font-weight: bold;
+}
+
+.add-review input, .add-review textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.add-review button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-review button:hover {
+    background-color: #555;
 }

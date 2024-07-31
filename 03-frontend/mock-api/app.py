@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import json
 from uuid import uuid4
@@ -17,20 +17,26 @@ with open('data/places.json') as f:
 # In-memory storage for new reviews
 new_reviews = []
 
-@app.route('/login', methods=['POST'])
-def login():
-    email = request.json.get('email')
-    password = request.json.get('password')
+@app.route('/', methods=['GET'])
+def home():
+    return redirect(url_for('show_login'))
 
-    user = next((u for u in users if u['email'] == email and u['password'] == password), None)
+@app.route('/login', methods=['GET', 'POST'])
+def show_login():
+    if request.method == 'POST':
+        email = request.json.get('email')
+        password = request.json.get('password')
+
+        user = next((u for u in users if u['email'] == email and u['password'] == password), None)
     
-    if not user:
-        print(f"User not found or invalid password for: {email}")
-        return jsonify({"msg": "Invalid credentials"}), 401
+        if not user:
+            print(f"User not found or invalid password for: {email}")
+            return jsonify({"msg": "Invalid credentials"}), 401
 
-    access_token = create_access_token(identity=user['id'])
-    return jsonify(access_token=access_token)
-
+        access_token = create_access_token(identity=user['id'])
+        return jsonify(access_token=access_token)
+    return render_template('login.html')
+    
 @app.route('/places', methods=['GET'])
 def get_places():
     response = [
@@ -97,4 +103,4 @@ def add_review(place_id):
     return jsonify({"msg": "Review added"}), 201
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

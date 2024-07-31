@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    background-color: #872c2c;
+    background-color: #e4c6c6;
     color: #fff;
     padding: 1rem;
     display: flex;
@@ -25,30 +25,64 @@ header {
 }
 
 header .logo {
-    height: 50px;
+    width: 150px;
 }
 
-nav a {
+nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+nav a.login-button {
+    background-color: #9a03ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
     color: #fff;
     text-decoration: none;
-    margin-left: 1rem;
+    margin-left: auto;
 }
 
 main {
     padding: 2rem;
 }
 
-footer {
-    background-color: #712ee4;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+#filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#available-places {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+#filter {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#filter label{
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#contry-filter {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd
 }
 
 .places-list, .reviews {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 20px;
     justify-content: space-around;
 }
 
@@ -102,11 +136,20 @@ footer {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
-    background-color: #333;
+    background-color: #9c79a7;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease
 }
 
 .add-review button:hover {
-    background-color: #555;
+    background-color: #45355a;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #712ee4;
+    color: #0c0c0c;
+    padding: 1rem 0;
+    text-align: center;
 }

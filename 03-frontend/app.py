@@ -19,7 +19,7 @@ new_reviews = []
 
 @app.route('/', methods=['GET'])
 def home():
-    return redirect(url_for('show_login'))
+    return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def show_login():

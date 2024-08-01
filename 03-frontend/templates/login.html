@@ -9,10 +9,13 @@
 <body>
     <header>
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
     </header>
     <main>
+        <h2>Login</h2>
         <form id="login-form" class="login-form">
-            <h2>Login</h2>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
@@ -21,9 +24,10 @@
             
             <button type="submit">Login</button>
         </form>
+        <div id="error-message" style="color: red;"></div>
     </main>
     <footer>
-        <p>All rights reserved</p>
+        <p>© 2024 All rights reserved</p>
     </footer>
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
